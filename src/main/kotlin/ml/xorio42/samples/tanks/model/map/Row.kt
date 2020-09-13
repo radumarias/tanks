@@ -8,5 +8,5 @@ import ml.xorio42.samples.tanks.utils.GenerateNoArgConstructor
  */
 @GenerateNoArgConstructor
 data class Row(
-	var cols: List<Cell>
+	var c: List<Cell>
 )

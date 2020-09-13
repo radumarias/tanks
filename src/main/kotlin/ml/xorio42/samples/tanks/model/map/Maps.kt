@@ -14,5 +14,5 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema
 data class Maps(
 	@Schema(type = SchemaType.STRING) @BsonId var id: ObjectId?,
 	var name: String,
-	var rows: List<Row>
+	var r: List<Row>
 )

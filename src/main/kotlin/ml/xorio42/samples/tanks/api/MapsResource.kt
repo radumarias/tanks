@@ -6,6 +6,7 @@ import ml.xorio42.samples.tanks.utils.EntityUtils
 import ml.xorio42.samples.tanks.utils.EntityUtils.Companion.delete
 import ml.xorio42.samples.tanks.utils.EntityUtils.Companion.readRepo
 import org.bson.types.ObjectId
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
 import javax.inject.Inject
 import javax.ws.rs.*
@@ -53,4 +54,9 @@ class MapsResource(@Inject val repo: MapsRepository) {
 	@Path("{id}")
 	fun delete(@PathParam("id") id: String) = delete(repo, id)
 
+	@DELETE
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/all")
+	@APIResponse(responseCode = "200", description = "The number of entities deleted.")
+	fun deleteAll() = repo.deleteAll()
 }

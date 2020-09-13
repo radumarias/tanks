@@ -52,8 +52,12 @@ class TanksResource(@Inject val repo: TankRepository) {
 	}
 
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
 	fun delete(@PathParam("id") id: String) = delete(repo, id)
 
+	@DELETE
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/all")
+	@APIResponse(responseCode = "200", description = "The number of entities deleted.")
+	fun deleteAll() = repo.deleteAll()
 }
