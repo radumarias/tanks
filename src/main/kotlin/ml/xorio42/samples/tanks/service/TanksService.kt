@@ -20,10 +20,8 @@ class TanksService(@Inject val repo: TanksRepository, @Inject val random: Random
 			.collectItems().asList()
 			.onItem().transform { null }
 
-	fun _createRandomTank(): Tank {
-		println("_createRandomTank")
-
-		return Tank(
+	fun _createRandomTank() =
+		Tank(
 			random.nextName(),
 			random.nextInt(1, 100),
 			random.nextInt(1, 100),
@@ -31,6 +29,5 @@ class TanksService(@Inject val repo: TanksRepository, @Inject val random: Random
 			random.nextInt(1, 3),
 			random.nextInt(5, 20)
 		)
-	}
 
 }
