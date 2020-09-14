@@ -1,8 +1,20 @@
+# Building docker image
+
+## With gradle
+```
+./gradlew build -Dquarkus.container-image.build=true -x test
+```
+
+## Manually with docker
+You need to build first. Se below if you don't have `build` folder already.
+```
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus/tanks .
+```
+
 # Start app
 
 ## Start docker-compose
 ```
-cd docker
 docker-compose up
 ```
 

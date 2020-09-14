@@ -23,3 +23,13 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
     links:
       - "mongo"
+
+  quarkus-tanks:
+    image: quarkus/tanks
+    depends_on:
+      - mongo
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - "mongo"
