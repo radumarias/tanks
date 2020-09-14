@@ -12,7 +12,10 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema
  */
 @MongoEntity
 data class Maps(
-	@Schema(type = SchemaType.STRING) @BsonId var id: ObjectId?,
 	var name: String,
 	var r: List<Row>
-)
+) {
+	@BsonId
+	@Schema(required = true, example = "1a2b3c", type = SchemaType.STRING, implementation = String::class)
+	var id: ObjectId? = null
+}

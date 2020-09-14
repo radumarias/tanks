@@ -1,6 +1,6 @@
 package ml.xorio42.samples.tanks.repository
 
-import io.quarkus.mongodb.panache.PanacheMongoRepositoryBase
+import io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoRepositoryBase
 import ml.xorio42.samples.tanks.model.Tank
 import org.bson.types.ObjectId
 import javax.enterprise.context.ApplicationScoped
@@ -10,5 +10,5 @@ import javax.enterprise.context.ApplicationScoped
  * 9/12/20 5:41 PM
  */
 @ApplicationScoped
-object TankRepository : PanacheMongoRepositoryBase<Tank, ObjectId> {
+object TankRepository : ReactivePanacheMongoRepositoryBase<Tank, ObjectId> {
 }
