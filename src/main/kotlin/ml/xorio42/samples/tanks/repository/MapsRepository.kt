@@ -1,6 +1,5 @@
 package ml.xorio42.samples.tanks.repository
 
-import io.quarkus.mongodb.panache.PanacheMongoRepositoryBase
 import io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoRepositoryBase
 import ml.xorio42.samples.tanks.model.map.Maps
 import org.bson.types.ObjectId

@@ -10,5 +10,5 @@ import javax.enterprise.context.ApplicationScoped
  * 9/12/20 5:41 PM
  */
 @ApplicationScoped
-object TankRepository : ReactivePanacheMongoRepositoryBase<Tank, ObjectId> {
+object TanksRepository : ReactivePanacheMongoRepositoryBase<Tank, ObjectId> {
 }

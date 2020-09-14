@@ -2,7 +2,8 @@ package ml.xorio42.samples.tanks.api
 
 import io.smallrye.mutiny.Uni
 import ml.xorio42.samples.tanks.model.Tank
-import ml.xorio42.samples.tanks.repository.TankRepository
+import ml.xorio42.samples.tanks.repository.TanksRepository
+import ml.xorio42.samples.tanks.service.TanksService
 import ml.xorio42.samples.tanks.utils.EntityUtils
 import org.bson.types.ObjectId
 import org.eclipse.microprofile.openapi.annotations.media.Content
@@ -18,7 +19,8 @@ import javax.ws.rs.core.UriInfo
 
 @Path("/api/v1/tanks")
 @Tag(name = "Tanks")
-class TanksResource(@Inject val repo: TankRepository, @Inject val entityUtils: EntityUtils) {
+class TanksResource(@Inject val repo: TanksRepository, @Inject val entityUtils: EntityUtils,
+                    @Inject val service: TanksService) {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -70,4 +72,9 @@ class TanksResource(@Inject val repo: TankRepository, @Inject val entityUtils: E
 	@Path("/all")
 	@APIResponse(responseCode = "200", description = "The number of entities deleted.")
 	fun deleteAll() = repo.deleteAll()
+
+	@POST
+	@Path("/randomize")
+	@APIResponse(responseCode = "200", content = [])
+	fun randomize(@QueryParam("count") count: Int) = service.randomize(count)
 }
