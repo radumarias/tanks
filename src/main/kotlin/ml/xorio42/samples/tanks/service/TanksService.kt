@@ -14,6 +14,7 @@ import javax.inject.Inject
  */
 @ApplicationScoped
 class TanksService(@Inject val repo: TanksRepository, @Inject val random: RandomGenerators) {
+	// experimenting with Reactive Vert.x mutiny
 	fun randomize(count: Int) =
 		Multi.createFrom().range(0, count)
 			.onItem().invokeUni { repo.persist(_createRandomTank()) }

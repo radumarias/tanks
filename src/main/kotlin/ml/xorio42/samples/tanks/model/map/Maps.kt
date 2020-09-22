@@ -18,4 +18,8 @@ data class Maps(
 	@BsonId
 	@Schema(required = true, example = "1a2b3c", type = SchemaType.STRING, implementation = String::class)
 	var id: ObjectId? = null
+
+	@Transient
+	@Schema(description = "String display representation with _ and X chars, is just for view only, it's not persisted.")
+	var displayString: String? = null
 }
